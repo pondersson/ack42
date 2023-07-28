@@ -1,0 +1,63 @@
+* ACK42
+
+[[file:img/ack42.jpg]]
+
+ACK42 is a DIY sandwich-style keyboard with 42 keys inspired by [[https://zealot.hu/absolem/][Absolem]], [[https://github.com/foostan/crkbd][Corne]] and [[https://blog.splitkb.com/introducing-the-kyria/][Kyria]]. The first prototypes were assembled in September 2020 and they have miraculously survived daily use since then.
+
+This repository is a dump of the artifacts left over from the creation process. Things might be broken, so take this not as a finished product ready to be sent off for manufacturing, but rather as a documented example of one way of creating a keyboard.
+
+I briefly entertained the idea of skipping a PCB and instead 3D-printing wire channels and hand-wiring Kailh hotswap sockets (see [[#gallery][Gallery]]). In the end I went the PCB route and that was a good decision in hindsight. It made assembly much easier and I ended up making 4 versions of the keyboard: 2 MX hotswap versions and 2 Choc low-profile versions, 3 of which I still use regularly, some daily.
+
+** Process (rough)
+
+1) CAD top plate, spending countless hours shifting switch positions around a few millimeters at a time and 3D-printing prototypes until things feel just right
+2) CAD everything else: bottom plate, screw holes, MCU cutout and cover
+3) Dump top plate to a KiCad-friendly format so the outline and switch positions can be used during PCB design
+4) Add all PCB components into KiCad, connect them in the electric schematic and then on the PCB
+5) Import top plate into KiCad and painstakingly rotate and position all switch footprints so they're lined up with the top plate
+6) Add some art to give the PCB some flair
+7) Export Gerber files from KiCad and send them off to the manufacturer
+8) Export all necessary SVG files from OpenSCAD, tile them neatly in a single SVG file that represent an acrylic sheet and send it off for laser cutting
+9) Order all other necessary components (see [[#materials][Materials]])
+10) Wait for parts to arrive
+11) Assemble the keyboard(s)
+   
+**  Materials
+
+All parts required to assemble a single ACK42 keyboard (MX variant):
+
+- 1 ACK42 PCB
+- 1 Elite-C microcontroller with pins + stand-offs
+- 8 M3 12 mm screws
+- 8 M3 cap nuts
+- 2 M2 screws
+- 2 M2 stand-offs
+- 64 0.5 mm washers (or equivalent)
+- 42 Kailh hotswap sockets
+- 42 through-hole diodes
+- 42 MX-style switches
+- 42 Keycaps
+   
+** Gallery
+
+[[file:img/ack42_triangle.jpg]]
+[[file:img/ack42_little_pilot.jpg]]
+[[file:img/ack42_space_cadet.jpg]]
+[[file:img/ack42_low_profile.jpg]]
+
+[[file:img/draft_edge.png]]
+[[file:img/draft_handwire.png]]
+
+[[file:img/pcb_render_0.png]]
+[[file:img/pcb_render_1.jpg]]
+[[file:img/pcb_render_2.png]]
+[[file:img/pcb.jpg]]
+
+** License
+[[file:LICENSE]] © Pontus Andersson
+
+The KiCad components were taken from the following repositories and their licenses can be found in the corresponding ~pcb~ subdirectories:
+
+- https://github.com/daprice/keyswitches.pretty
+- https://github.com/keebio/Keebio-Parts.pretty
+- https://github.com/tmk/keyboard_parts.pretty
